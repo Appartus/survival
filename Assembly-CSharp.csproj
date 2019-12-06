@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerCollisions.cs" />
      <Compile Include="Assets\Stylized foliages pack\Standard Assets\Characters\FirstPersonCharacter\Scripts\Crouch.cs" />
      <Compile Include="Assets\Stylized foliages pack\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Stylized foliages pack\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
