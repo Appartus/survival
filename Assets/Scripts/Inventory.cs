@@ -15,6 +15,10 @@ public class Inventory : MonoBehaviour
     // Generator
     public Texture2D[] meterCharge;
     public Renderer meter;
+    //Matches
+    bool haveMatches = false;
+    public RawImage matchHudGUI;
+
     void Start()
     {
         charge = 0;
@@ -35,12 +39,18 @@ public class Inventory : MonoBehaviour
 
         if (!chargeHudGUI.enabled)
         {
-
             chargeHudGUI.enabled = true;
-
         }
 
     }
+
+    void MatchPickup()
+    {
+        haveMatches = true;
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);
+        matchHudGUI.enabled = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
