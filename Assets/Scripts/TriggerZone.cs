@@ -23,19 +23,15 @@ public class TriggerZone : MonoBehaviour
 
             if (Inventory.charge == 4)
             {
-
                 transform.FindChild("door").SendMessage("DoorCheck");
-
             }
             else
             {
-                transform.FindChild("door").GetComponent<AudioSource>().PlayOneShot
-(lockedSound);
-
+                transform.FindChild("door").GetComponent<AudioSource>().PlayOneShot(lockedSound);
                 col.gameObject.SendMessage("HUDon");
             }
 
-        }
+        }        
     }
 }
 

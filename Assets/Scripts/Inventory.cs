@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour
 
     public AudioClip collectSound;
 
+    public Text textHints;
+
     // HUD
     public Texture2D[] hudCharge;
     public RawImage chargeHudGUI;
@@ -22,6 +24,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         charge = 0;
+        haveMatches = false;
     }
     void CellPickup()
     {
@@ -56,6 +59,32 @@ public class Inventory : MonoBehaviour
     {
         
     }
-   
+
+    void OnControllerColliderHit(ControllerColliderHit col)
+    {
+
+        if (col.gameObject.name == "campfire")
+        {
+            if (haveMatches == true) LightFire(col.gameObject);
+
+        }
+
+    }
+
+    void LightFire(GameObject campfire)
+    {
+        ParticleSystem[] fireEmitters;
+        fireEmitters = campfire.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem emitter in fireEmitters)
+        {
+
+            emitter.Play();
+
+        }
+        campfire.GetComponent<AudioSource>().Play();
+        matchHudGUI.enabled = false;
+        haveMatches = false;
+    }
+
 
 }
